@@ -8,20 +8,24 @@ HTML
 
 JAVASCRIPT
   *Initialize variables
-    -Header text
-    -Blue button text/state
-    -Helper text/state
-    -GO/Reset text/state
+    -Header text = []
+    -Blue button text/state = []
+    -Example text/state
+    -Helper text/state = []
+    -GO/Reset text/state = []
 
   *Create objects for:
     -Pages: 1-6*
       PROPERTIES
         +Header
-          -Needs to increment through values for pg 1-6
+          -Needs to increment through values for pg 1-6 (in an array)
         +Blue button
           -Needs to be hidden pg 1
           -Show 'NEXT' pg 2-4
           -Show 'REVEAL' pg 5
+        +Example text
+          -Needs to be hidden pg 1
+          -Needs to increment though values for pg 2-6
         +Helper text
           -Needs to be hidden pg 1
           -Needs to increment through values for pg 2-6
