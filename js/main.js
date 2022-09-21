@@ -5,45 +5,33 @@ let state = {
 let pages = [
     {
         headerText: 'I can read your mind',
-        //blueButtonText: null,
         exampleText: null,
         helperText: null,
-        //goResetButton: 'GO',
     },
     {
         headerText: 'Pick a number from 01-99',
-        //blueButtonText: null,
         exampleText: 'when you have your number click next',
         helperText: 'click next to proceed',
-        //goResetButton: resetImage,
     },
     {
         headerText: 'Add both digits together to get a new number',
-        //blueButtonText: null,
         exampleText: 'Ex: 14 is 1 + 4 = 5',
         helperText: 'click next to proceed',
-        //goResetButton: resetImage,
     },
     {
         headerText: 'Subract your new number from the original number',
-        //blueButtonText: null,
         exampleText: 'Ex: 14 - 5 = 9',
         helperText: 'click next to proceed',
-        //goResetButton: resetImage,
     },
     {
-        headerText: null, //[array of numbers and symbols and shit]
-        //blueButtonText: null,
+        headerText: '[array of numbers and symbols and shit]',
         exampleText: 'Find your new number',
         helperText: 'Note the symbol beside the number',
-        //goResetButton: resetImage,
     },
     {
         headerText: '&',
-        //blueButtonText: null,
         exampleText: 'Your symbol is:',
         helperText: '&',
-        //goResetButton: resetImage,
     }
 ]
 
@@ -58,13 +46,13 @@ const goResetButton = document.getElementById('GO/Reset-button')
 let createGoResetButton = document.createElement('button');
 
 function goResetUpdate() {
-    if (state.pg === 0) {
+    if (state.pg == 0) {
         createGoResetButton.innerText = 'GO';
         goResetButton.appendChild(createGoResetButton);
         createGoResetButton.addEventListener('click', incrementPage)
         console.log('next')
     } else {
-        createGoResetButton.innerText = 'RESET';
+        createGoResetButton.innerHTML = 'RESET';
         goResetButton.appendChild(createGoResetButton)
         createGoResetButton.addEventListener('click', resetPage)
         console.log('reset')
@@ -73,8 +61,20 @@ function goResetUpdate() {
 }
 
 let createBlueButton = document.createElement('button');
-createBlueButton.innerText = 'NEXT';
-blueButton.appendChild(createBlueButton);
+
+function blueButtonUpdate() {
+    if ((state.pg == 1) || (state.pg == 2) || (state.pg == 3)) {
+        createBlueButton.innerText = 'NEXT';
+        blueButton.appendChild(createBlueButton);
+        createBlueButton.addEventListener('click', incrementPage)
+    } else if (state.pg == 4) {
+        createBlueButton.innerText = 'REVEAL';
+        blueButton.appendChild(createBlueButton);
+        createBlueButton.addEventListener('click', incrementPage)
+    } else if ((state.pg == 0) || (state.pg == 5)) {
+        //blueButton.style.visibility = 'hidden';
+    }
+}
 
 function incrementPage() {
     // console.log(state.pg)
@@ -83,16 +83,12 @@ function incrementPage() {
     } else {state.pg = 0}
     // console.log(state.pg)
     updateContent();
-    goResetUpdate();
 }
 
 function resetPage() {
     state.pg = 0;
-    goResetUpdate();
     updateContent();
 }
-
-createBlueButton.addEventListener('click', incrementPage)
 
 function updateContent() {
     let headerText = pages[state.pg].headerText;
@@ -103,7 +99,11 @@ function updateContent() {
 
     let helperText = pages[state.pg].helperText;
     helper.textContent = helperText;
+
+    goResetUpdate();
+    blueButtonUpdate()
+
 }
 
 updateContent();
-goResetUpdate();
+
