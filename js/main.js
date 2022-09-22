@@ -29,9 +29,9 @@ let pages = [
         helperText: 'Note the symbol beside the number',
     },
     {
-        headerText: '&',
+        headerText: '🍑',
         exampleText: 'Your symbol is:',
-        helperText: '&',
+        helperText: '🍑',
     }
 ]
 
@@ -45,38 +45,41 @@ const goResetButton = document.getElementById('GO/Reset-button')
 
 let createGoResetButton = document.createElement('button');
 
+createGoResetButton.innerText = 'GO';
+goResetButton.appendChild(createGoResetButton);
+
+createGoResetButton.addEventListener('click', () => {
+    if (state.pg < 1) {
+        incrementPage()
+    } else {
+        resetPage()
+    }});
+
 function goResetUpdate() {
     if (state.pg < 1) {
         createGoResetButton.innerText = 'GO';
-        goResetButton.appendChild(createGoResetButton);
-        createGoResetButton.addEventListener('click', incrementPage);
-        console.log('next')
     } else {
         createGoResetButton.innerHTML = 'RESET';
-        goResetButton.appendChild(createGoResetButton);
-        createGoResetButton.addEventListener('click', resetPage);
-        console.log('reset')
-        console.log(state.pg)
     }
 }
 
 let createBlueButton = document.createElement('button');
+blueButton.appendChild(createBlueButton);
 
-function blueButtonUpdate() {
-    if ((state.pg >= 1) && (state.pg <= 3)) {
+function blueButtonUpdate() {    
+    if ((state.pg == 0) || (state.pg == 5)) {
+        blueButton.style.visibility = 'hidden';
+    } else if ((state.pg >= 1) && (state.pg <= 3)) {
         blueButton.style.visibility = 'visible';
-        createBlueButton.innerText = 'NEXT';
-        blueButton.appendChild(createBlueButton);
-        createBlueButton.addEventListener('click', incrementPage)
+        createBlueButton.innerText = 'NEXT';    
     } else if (state.pg == 4) {
         blueButton.style.visibility = 'visible';
-        createBlueButton.innerText = 'REVEAL';
-        blueButton.appendChild(createBlueButton);
-        createBlueButton.addEventListener('click', incrementPage)
-    } else if ((state.pg == 0) || (state.pg == 5)) {
-        blueButton.style.visibility = 'hidden';
-    }
+        createBlueButton.innerText = 'REVEAL';   
+    } 
 }
+
+createBlueButton.addEventListener('click', () => {incrementPage()})
+
 
 function incrementPage() {
     // console.log(state.pg)
