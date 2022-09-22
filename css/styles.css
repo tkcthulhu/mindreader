@@ -1,1 +1,69 @@
+body {
+    background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
 
+#header-text-col {
+    height: 60vh;
+    font-size:8vh;
+    overflow: scroll;
+    white-space: pre-line;
+    color:dimgrey
+}
+
+
+#blue-button-row {
+    height:10vh;
+    align-items: center;
+}
+
+#blue-button {
+    background-color: rgb(57, 206, 236);
+    color:white;
+    height: 10vh;
+    width: 75vw;
+    font-size: 3vh;
+    border-color: black;
+    border-width: 1px;
+    font-weight: bold;
+    
+}
+
+#example-text-col {
+    padding-top: 3vh;
+    height:10vh;
+    font-size: 3vh;
+    color:rgb(57, 206, 236);
+}
+
+#helper-text-col {
+    height:10vh;
+    font-size: 3vh;
+    color:rgb(57, 206, 236);
+}
+
+#GO-Reset-row {
+    justify-content: right;
+}
+
+#GO-Reset-button {
+    height:10vh;
+}
+
+#GO-RESET {
+    border-radius: 50%;
+    width: 20vw;
+    height: 20vw;
+    background-color: white;
+    color: rgb(57, 206, 236);
+    border-color: black;
+    border-width: 1px;
+    font-size: 2.5vh;
+    font-weight: bold;
+}
+
+#reset-image {
+    width: 5vh;
+    height: 5vh;
+    transform: scaleX(-1);
+}

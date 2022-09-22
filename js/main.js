@@ -10,8 +10,8 @@ let pages = [
     },
     {
         headerText: 'Pick a number from 01-99',
-        exampleText: 'when you have your number click next',
-        helperText: 'click next to proceed',
+        exampleText: 'when you have your number',
+        helperText: 'click next',
     },
     {
         headerText: 'Add both digits together to get a new number',
@@ -24,28 +24,32 @@ let pages = [
         helperText: 'click next to proceed',
     },
     {
-        headerText: '[array of numbers and symbols and shit]',
+        headerText: numberScrambler(),
         exampleText: 'Find your new number',
         helperText: 'Note the symbol beside the number',
     },
     {
-        headerText: '🍑',
+        headerText: '\n\n🍑',
         exampleText: 'Your symbol is:',
         helperText: '🍑',
     }
 ]
 
-const resetImage = '../img/reset.png'
+const resetImage = document.createElement('img')
+resetImage.setAttribute('id', 'reset-image')
+resetImage.src = '../img/reset.png';
 
-const header = document.getElementById('header-text');
-const blueButton = document.getElementById('blue-button');
-const example = document.getElementById('example-text');
-const helper = document.getElementById('helper-text');
-const goResetButton = document.getElementById('GO/Reset-button')
+const header = document.getElementById('header-text-col');
+const blueButton = document.getElementById('blue-button-col');
+const example = document.getElementById('example-text-col');
+const helper = document.getElementById('helper-text-col');
+const goResetButton = document.getElementById('GO-Reset-button')
 
 let createGoResetButton = document.createElement('button');
 
 createGoResetButton.innerText = 'GO';
+createGoResetButton.setAttribute('id', 'GO-RESET')
+createGoResetButton.setAttribute('class', 'align-self-end')
 goResetButton.appendChild(createGoResetButton);
 
 createGoResetButton.addEventListener('click', () => {
@@ -59,11 +63,13 @@ function goResetUpdate() {
     if (state.pg < 1) {
         createGoResetButton.innerText = 'GO';
     } else {
-        createGoResetButton.innerHTML = 'RESET';
+        createGoResetButton.innerText = '';
+        createGoResetButton.appendChild(resetImage);
     }
 }
 
 let createBlueButton = document.createElement('button');
+createBlueButton.setAttribute('id','blue-button');
 blueButton.appendChild(createBlueButton);
 
 function blueButtonUpdate() {    
@@ -81,12 +87,11 @@ function blueButtonUpdate() {
 createBlueButton.addEventListener('click', () => {incrementPage()})
 
 
+
 function incrementPage() {
-    // console.log(state.pg)
     if (state.pg < 5) {
         state.pg += 1;
     }
-    // console.log(state.pg)
     updateContent();
 }
 
@@ -107,6 +112,46 @@ function updateContent() {
 
     goResetUpdate();
     blueButtonUpdate();
+}
+
+function numberScrambler() {
+    let n = 0;
+    let sym = '';
+    let arr = [];
+    do {
+        n ++;
+        switch (n % 9) {
+            case 0:
+                sym = '🍑';
+                break;
+            case 1:
+                sym = '😔';
+                break;
+            case 2:
+                sym = '😁';
+                break;
+            case 3:
+                sym = '😳';
+                break;
+            case 4:
+                sym = '🙌🏻';
+                break;
+            case 5:
+                sym = '👀';
+                break;
+            case 6:
+                sym = '😜';
+                break;            
+            case 7:
+                sym = '😉';
+                break;
+            case 8:
+                sym = '😁';
+                break;
+        }
+        arr.push(`${n} = ${sym}\n`);
+    } while (n < 81);
+    return (arr.join('')); 
 }
 
 updateContent();

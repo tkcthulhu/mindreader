@@ -67,4 +67,9 @@ JAVASCRIPT
     Update Page
       Increments page from 1 through 6
       Update states per page via array?
+
+    Number Scramble
+      create swtich statement that sets the possibilities of remainders from 9 = an emjoi
+      create a for loop that increments 1-81
+      return a concatenated string with the numbers = emoji value  
 ```
