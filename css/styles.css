@@ -4,7 +4,7 @@ body {
 }
 
 #header-text-col {
-    height: 63vh;
+    height: 65vh;
     font-size:7vh;
     overflow: scroll;
     margin-top: 1vw;
@@ -51,22 +51,23 @@ body {
     height:10vh;
     position:absolute;
     left: 72.5vw;
+    bottom: 3vw;
 }
 
 #GO-RESET {
     border-radius: 50%;
-    width: 20vw;
-    height: 20vw;
+    width: 22.5vw;
+    height: 22.5vw;
     background-color: white;
     color: rgb(57, 206, 236);
     border-color: black;
     border-width: 1px;
-    font-size: 2.5vh;
+    font-size: 3vh;
     font-weight: bold;
 }
 
 #reset-image {
-    width: 4vh;
-    height: 4vh;
+    width: 5vh;
+    height: 5vh;
     transform: scaleX(-1);
 }
