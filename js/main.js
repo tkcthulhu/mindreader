@@ -51,7 +51,7 @@ function goResetUpdate() {
         goResetButton.appendChild(createGoResetButton);
         createGoResetButton.addEventListener('click', incrementPage)
         console.log('next')
-    } else {
+    } else if (state.pg > 0) {
         createGoResetButton.innerHTML = 'RESET';
         goResetButton.appendChild(createGoResetButton)
         createGoResetButton.addEventListener('click', resetPage)
@@ -63,16 +63,18 @@ function goResetUpdate() {
 let createBlueButton = document.createElement('button');
 
 function blueButtonUpdate() {
-    if ((state.pg == 1) || (state.pg == 2) || (state.pg == 3)) {
+    if ((state.pg >= 1) && (state.pg <= 3)) {
+        blueButton.style.visibility = 'visible';
         createBlueButton.innerText = 'NEXT';
         blueButton.appendChild(createBlueButton);
         createBlueButton.addEventListener('click', incrementPage)
     } else if (state.pg == 4) {
+        blueButton.style.visibility = 'visible';
         createBlueButton.innerText = 'REVEAL';
         blueButton.appendChild(createBlueButton);
         createBlueButton.addEventListener('click', incrementPage)
     } else if ((state.pg == 0) || (state.pg == 5)) {
-        //blueButton.style.visibility = 'hidden';
+        blueButton.style.visibility = 'hidden';
     }
 }
 
@@ -87,6 +89,9 @@ function incrementPage() {
 
 function resetPage() {
     state.pg = 0;
+    createGoResetButton.innerText = 'GO';
+    goResetButton.appendChild(createGoResetButton);
+    createGoResetButton.addEventListener('click', incrementPage)
     updateContent();
 }
 
@@ -101,8 +106,7 @@ function updateContent() {
     helper.textContent = helperText;
 
     goResetUpdate();
-    blueButtonUpdate()
-
+    blueButtonUpdate();
 }
 
 updateContent();
