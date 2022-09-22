@@ -1,12 +1,16 @@
 
+// Declaring my array of emojis
 let emojis = ['🍑', '😔', '😁', '😳', '🙌🏻', '👀', '😜', '😉', '😁'];
 
+// Scrambling the array
 let emojiShuffle = emojis.sort((a, b) => 0.5 - Math.random());
 
+// Initializing the state of my page count
 let state = {
     pg : 0
 }
     
+// Array of objects with appropriate properties for each page
 let pages = [
     {
         headerText: 'I can read your mind',
@@ -40,22 +44,25 @@ let pages = [
     }
 ]
 
+// Initialize and setup reset arrow icon image
 const resetImage = document.createElement('img')
 resetImage.setAttribute('id', 'reset-image')
 resetImage.src = '../img/reset.png';
 
+// Mapping variables to different elements
 const header = document.getElementById('header-text-col');
 const blueButton = document.getElementById('blue-button-col');
 const example = document.getElementById('example-text-col');
 const helper = document.getElementById('helper-text-col');
 const goResetButton = document.getElementById('GO-Reset-button')
 
+// Creating my GO/RESET button
 let createGoResetButton = document.createElement('button');
-
 createGoResetButton.innerText = 'GO';
 createGoResetButton.setAttribute('id', 'GO-RESET')
 goResetButton.appendChild(createGoResetButton);
 
+// Logic to tell the button what click function do run based on the state of the page it is on
 createGoResetButton.addEventListener('click', () => {
     if (state.pg < 1) {
         incrementPage()
@@ -64,6 +71,7 @@ createGoResetButton.addEventListener('click', () => {
     }
 });
 
+// Logic to update the text in the GO/RESET button
 function goResetUpdate() {
     if (state.pg < 1) {
         createGoResetButton.innerText = 'GO';
@@ -73,10 +81,13 @@ function goResetUpdate() {
     }
 }
 
+// Creating my Blue Button and setting up functionality
 let createBlueButton = document.createElement('button');
 createBlueButton.setAttribute('id','blue-button');
 blueButton.appendChild(createBlueButton);
+createBlueButton.addEventListener('click', () => {incrementPage()})
 
+// Logic to update that visibility/text of the Blue Button
 function blueButtonUpdate() {    
     if ((state.pg == 0) || (state.pg == 5)) {
         blueButton.style.visibility = 'hidden';
@@ -89,8 +100,7 @@ function blueButtonUpdate() {
     } 
 }
 
-createBlueButton.addEventListener('click', () => {incrementPage()})
-
+// Logic to increment page value from 0-5
 function incrementPage() {
     if (state.pg < 5) {
         state.pg += 1;
@@ -98,11 +108,14 @@ function incrementPage() {
     updateContent();
 }
 
+// Logic to reset page
 function resetPage() {
     state.pg = 0;
+    emojiShuffle;
     updateContent();
 }
 
+// Logic to update the page content with the properties of the appropriate object based on the state of the page
 function updateContent() {
     let headerText = pages[state.pg].headerText;
     header.textContent = headerText;
@@ -117,6 +130,7 @@ function updateContent() {
     blueButtonUpdate();
 }
 
+// Logic to set the numbers equal to random emojis based on value from the scrambled array
 function numberScrambler() {
     emojiShuffle
     let n = 0;
@@ -158,5 +172,6 @@ function numberScrambler() {
     return (arr.join('')); 
 }
 
+// Call function to initialize the page
 updateContent();
 
