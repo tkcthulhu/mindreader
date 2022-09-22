@@ -4,9 +4,12 @@ body {
 }
 
 #header-text-col {
-    height: 60vh;
-    font-size:8vh;
+    height: 63vh;
+    font-size:7vh;
     overflow: scroll;
+    margin-top: 1vw;
+    margin-left: 6vw;
+    margin-right: 6vw;
     white-space: pre-line;
     color:dimgrey
 }
@@ -31,14 +34,14 @@ body {
 
 #example-text-col {
     padding-top: 3vh;
-    height:10vh;
+    height:8vh;
     font-size: 3vh;
     color:rgb(57, 206, 236);
     font-weight: bold;
 }
 
 #helper-text-col {
-    height:10vh;
+    height:8vh;
     font-size: 3vh;
     color:rgb(57, 206, 236);
     font-weight: bold;

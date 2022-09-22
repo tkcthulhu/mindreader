@@ -18,7 +18,7 @@ let pages = [
         helperText: null,
     },
     {
-        headerText: 'Pick a number from 01-99',
+        headerText: 'Pick a number from \n01-99',
         exampleText: 'when you have your number',
         helperText: 'click next',
     },
