@@ -44,10 +44,6 @@ body {
     font-weight: bold;
 }
 
-#GO-Reset-row {
-    justify-items: right;
-}
-
 #GO-Reset-button {
     height:10vh;
     position:absolute;

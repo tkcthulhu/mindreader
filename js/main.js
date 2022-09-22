@@ -49,7 +49,6 @@ let createGoResetButton = document.createElement('button');
 
 createGoResetButton.innerText = 'GO';
 createGoResetButton.setAttribute('id', 'GO-RESET')
-createGoResetButton.setAttribute('class', 'align-self-end')
 goResetButton.appendChild(createGoResetButton);
 
 createGoResetButton.addEventListener('click', () => {
