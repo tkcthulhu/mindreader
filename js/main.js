@@ -111,7 +111,6 @@ function incrementPage() {
 // Logic to reset page
 function resetPage() {
     state.pg = 0;
-    emojiShuffle;
     updateContent();
 }
 
@@ -168,7 +167,7 @@ function numberScrambler() {
                 break;
         }
         arr.push(`${n} = ${sym}\n`);
-    } while (n < 81);
+    } while (n < 99);
     return (arr.join('')); 
 }
 
