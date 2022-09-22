@@ -1,3 +1,7 @@
+let emojis = ['🍑', '😔', '😁', '😳', '🙌🏻', '👀', '😜', '😉', '😁'];
+
+let emoji = emojis[Math.floor(Math.random() * emojis.length)];
+
 function numberScrambler() {
     let n = 0;
     let sym = '';
