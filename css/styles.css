@@ -34,20 +34,24 @@ body {
     height:10vh;
     font-size: 3vh;
     color:rgb(57, 206, 236);
+    font-weight: bold;
 }
 
 #helper-text-col {
     height:10vh;
     font-size: 3vh;
     color:rgb(57, 206, 236);
+    font-weight: bold;
 }
 
 #GO-Reset-row {
-    justify-content: right;
+    justify-items: right;
 }
 
 #GO-Reset-button {
     height:10vh;
+    position:absolute;
+    left: 72.5vw;
 }
 
 #GO-RESET {
@@ -63,7 +67,7 @@ body {
 }
 
 #reset-image {
-    width: 5vh;
-    height: 5vh;
+    width: 4vh;
+    height: 4vh;
     transform: scaleX(-1);
 }
