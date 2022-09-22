@@ -61,7 +61,8 @@ createGoResetButton.addEventListener('click', () => {
         incrementPage()
     } else {
         resetPage()
-    }});
+    }
+});
 
 function goResetUpdate() {
     if (state.pg < 1) {
@@ -89,8 +90,6 @@ function blueButtonUpdate() {
 }
 
 createBlueButton.addEventListener('click', () => {incrementPage()})
-
-
 
 function incrementPage() {
     if (state.pg < 5) {
