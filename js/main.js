@@ -46,15 +46,15 @@ const goResetButton = document.getElementById('GO/Reset-button')
 let createGoResetButton = document.createElement('button');
 
 function goResetUpdate() {
-    if (state.pg == 0) {
+    if (state.pg < 1) {
         createGoResetButton.innerText = 'GO';
         goResetButton.appendChild(createGoResetButton);
-        createGoResetButton.addEventListener('click', incrementPage)
+        createGoResetButton.addEventListener('click', incrementPage);
         console.log('next')
-    } else if (state.pg > 0) {
+    } else {
         createGoResetButton.innerHTML = 'RESET';
-        goResetButton.appendChild(createGoResetButton)
-        createGoResetButton.addEventListener('click', resetPage)
+        goResetButton.appendChild(createGoResetButton);
+        createGoResetButton.addEventListener('click', resetPage);
         console.log('reset')
         console.log(state.pg)
     }
@@ -82,16 +82,13 @@ function incrementPage() {
     // console.log(state.pg)
     if (state.pg < 5) {
         state.pg += 1;
-    } else {state.pg = 0}
+    }
     // console.log(state.pg)
     updateContent();
 }
 
 function resetPage() {
     state.pg = 0;
-    createGoResetButton.innerText = 'GO';
-    goResetButton.appendChild(createGoResetButton);
-    createGoResetButton.addEventListener('click', incrementPage)
     updateContent();
 }
 
