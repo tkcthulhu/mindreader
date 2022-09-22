@@ -1,3 +1,8 @@
+
+let emojis = ['🍑', '😔', '😁', '😳', '🙌🏻', '👀', '😜', '😉', '😁'];
+
+let emojiShuffle = emojis.sort((a, b) => 0.5 - Math.random());
+
 let state = {
     pg : 0
 }
@@ -29,9 +34,9 @@ let pages = [
         helperText: 'Note the symbol beside the number',
     },
     {
-        headerText: '\n\n🍑',
+        headerText: `\n\n${emojiShuffle.at(0)}`,
         exampleText: 'Your symbol is:',
-        helperText: '🍑',
+        helperText: emojiShuffle.at(0),
     }
 ]
 
@@ -115,6 +120,7 @@ function updateContent() {
 }
 
 function numberScrambler() {
+    emojiShuffle
     let n = 0;
     let sym = '';
     let arr = [];
@@ -122,31 +128,31 @@ function numberScrambler() {
         n ++;
         switch (n % 9) {
             case 0:
-                sym = '🍑';
+                sym = emojiShuffle.at(0);
                 break;
             case 1:
-                sym = '😔';
+                sym = emojiShuffle.at(1);
                 break;
             case 2:
-                sym = '😁';
+                sym = emojiShuffle.at(2);
                 break;
             case 3:
-                sym = '😳';
+                sym = emojiShuffle.at(3);
                 break;
             case 4:
-                sym = '🙌🏻';
+                sym = emojiShuffle.at(4);
                 break;
             case 5:
-                sym = '👀';
+                sym = emojiShuffle.at(5);
                 break;
             case 6:
-                sym = '😜';
+                sym = emojiShuffle.at(6);
                 break;            
             case 7:
-                sym = '😉';
+                sym = emojiShuffle.at(7);
                 break;
             case 8:
-                sym = '😁';
+                sym = emojiShuffle.at(8);
                 break;
         }
         arr.push(`${n} = ${sym}\n`);
