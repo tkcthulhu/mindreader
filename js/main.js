@@ -1,6 +1,6 @@
 
 // Declaring my array of emojis
-let emojis = ['🍑', '😔', '😁', '😳', '🙌🏻', '👀', '😜', '😉', '😁', '😒', '😭', '😘', '🥳', '😏', '🤩', '🥸', '😎', '🧐', '🤬', '🥵', '🥺', '🫠', '🤔', '🫥', '🥱', '🤐', '😵‍💫', '💩', '🤖', '👾'];
+let emojis = ['🍑', '😔', '😁', '😳', '🙌🏻', '👀', '😜', '😉', '😁', '😒', 🥹'😭', '😘', '🥳', '😏', '🤩', '🥸', '😎', '🧐', '🤬', '🥵', '🥺', '🫠', '🤔', '🫥', '🥱', '🤐', '😵‍💫', '💩', '🤖', '👾'];
 
 // Scrambling the array
 let emojiShuffle = emojis.sort((a, b) => 0.5 - Math.random());
@@ -100,17 +100,46 @@ function blueButtonUpdate() {
     } 
 }
 
+// Logic to add the text fade in
+function textFadeIn() {
+    // trigger a DOM reflow
+    void header.offsetWidth;
+    void example.offsetWidth;
+    void helper.offsetWidth;
+    // add the animation class
+    header.classList.add('fadeIn');
+    example.classList.add('fadeIn');
+    helper.classList.add('fadeIn');
+
+    console.log('set class')
+}
+
+// Logic to remove the text fade in so that it can be triggered multiple times
+function textFadeIn2() {
+    // trigger a DOM reflow
+    void header.offsetWidth;
+    void example.offsetWidth;
+    void helper.offsetWidth;
+    // remove the animation class
+    header.classList.remove('fadeIn');
+    example.classList.remove('fadeIn');
+    helper.classList.remove('fadeIn');
+    console.log('remove class')
+}
+
 // Logic to increment page value from 0-5
 function incrementPage() {
     if (state.pg < 5) {
         state.pg += 1;
     }
+    textFadeIn2();
     updateContent();
 }
 
 // Logic to reset page
 function resetPage() {
     state.pg = 0;
+    textFadeIn2();
     updateContent();
 }
 
@@ -127,6 +156,7 @@ function updateContent() {
 
     goResetUpdate();
     blueButtonUpdate();
+    textFadeIn();
 }
 
 // Logic to set the numbers equal to random emojis based on value from the scrambled array
