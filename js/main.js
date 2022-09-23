@@ -47,7 +47,7 @@ let pages = [
 // Initialize and setup reset arrow icon image
 const resetImage = document.createElement('img')
 resetImage.setAttribute('id', 'reset-image')
-resetImage.src = '../img/reset.png';
+resetImage.src = './img/reset.png';
 
 // Mapping variables to different elements
 const header = document.getElementById('header-text-col');
