@@ -1,7 +1,7 @@
-/* @keyframes fadeIn { 
+@keyframes fadeIn { 
     0% { opacity: 0; }
     100% { opacity: 1; }
-    } */
+    } 
 
 body {
     background-color: white;
@@ -17,9 +17,11 @@ body {
     margin-right: 6vw;
     white-space: pre-line;
     color:dimgrey;
-    /* animation: fadeIn 5s; */
 }
 
+.fadeIn {
+    animation: fadeIn 3s;
+}
 
 #blue-button-row {
     height:10vh;
